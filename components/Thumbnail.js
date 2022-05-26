@@ -6,7 +6,7 @@ import {
 	CalendarIcon,
 } from "@heroicons/react/outline";
 import { forwardRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+//import image from "../public/noImage.jpg"
 
 const Thumbnail = forwardRef(({ result }, ref) => {
 	const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -72,7 +72,6 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 	return (
 		<>
 			{/* MOVIE ITEM */}
-            <motion.div ref={ref} className="movie-item" variants={thumbnail}>
 			<div
 				ref={ref}
 				className="p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50"
@@ -82,8 +81,7 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 				<Image
 					layout="responsive"
 					src={
-						`${BASE_URL}${result.backdrop_path || result.poster_path}` ||
-						`${BASE_URL}${result.poster_path}`
+						`${BASE_URL}${result.backdrop_path || result.poster_path}`
 					}
 					height={1080}
 					width={1920}
@@ -103,27 +101,16 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 					</p>
 				</div>
 			</div>
-            </motion.div>
 
 			{/* MOVIE MODAL */}
 
 			{showModal ? (
 				<>
-					<AnimatePresence exitBeforeEnter>
-						<motion.div
-							className="backdrop"
-							variants={backdrop}
-							animate="visible"
-							initial="hidden"
-						>
+
 							<div className="modal justify-center  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-bgModal z-100">
 								<div className="relative w-auto my-6 mx-auto max-w-3xl">
 									{/*content*/}
-									<motion.div
-										variants={modal}
-										animate="visible"
-										initial="hidden"
-									>
+
 										<div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-secondary outline-none focus:outline-none">
 											{/*header*/}
 											<div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
@@ -194,11 +181,8 @@ const Thumbnail = forwardRef(({ result }, ref) => {
                                     </button>
                                 </div> */}
 										</div>
-									</motion.div>
 								</div>
 							</div>
-						</motion.div>
-					</AnimatePresence>
 					<div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
 				</>
 			) : null}

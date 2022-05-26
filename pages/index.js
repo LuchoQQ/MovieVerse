@@ -12,12 +12,13 @@ export default function Home(
   { results,
     totalPages,
     totalResultsCount,
+    search
   }) {
   // ===========================================
   // PAGINATION
   // ===========================================
-    const [currentPage, setCurrentPage] = useState(1);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+
   // Use effect to get the actual page from the URL query string
   useEffect(() => {
     setCurrentPage(parseInt(router.query.page));
@@ -49,7 +50,6 @@ export default function Home(
   // END PAGINATION
   // ===========================================
 
-
   return (
     <div>
       <Head>
@@ -64,14 +64,17 @@ export default function Home(
       {/* Results */}
       <Results results={results} />
 
-      <Pagination
-        totalPages={totalPages}
-        totalPosts={totalResultsCount}
-        postsPerPage={20}
-        currentPage={currentPage}
-        paginateFront={paginateFront}
-        paginateBack={paginateBack}
-      />
+      {!search && (
+        <Pagination
+          totalPages={totalPages}
+          totalPosts={totalResultsCount}
+          postsPerPage={20}
+          currentPage={currentPage}
+          paginateFront={paginateFront}
+          paginateBack={paginateBack}
+        />
+      )}
+
 
     </div>
   )
@@ -80,18 +83,19 @@ export default function Home(
 
 export async function getServerSideProps(context) {
 
-
   const genre = context.query.genre;
   const currentPage = context.query.page;
   const search = context.query.search;
-  const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url ||fetchSearch + search}&page=${currentPage || 1}`).then(res => res.json())
-  
- //
+
+  const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || fetchSearch + search}&page=${currentPage || 1}`).then(res => res.json())
+
+
   return {
     props: {
       results: request.results,
       totalResultsCount: request.total_results,
       totalPages: request.total_pages,
+      search: search || ""
     }
   }
 
