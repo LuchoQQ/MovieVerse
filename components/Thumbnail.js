@@ -79,8 +79,11 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 			>
 				<Image
 					layout="responsive"
-					src={
-						`${BASE_URL}${result.backdrop_path || result.poster_path} }` 
+					
+					src={ 
+						//`${BASE_URL}${result.backdrop_path || result.poster_path}`
+						//`${(`${BASE_URL}${result.backdrop_path || result.poster_path || `https://res.cloudinary.com/diylksocz/image/upload/v1653600542/No-image-found_dlyvql.jpg`}`)}`
+						`${(BASE_URL + result.backdrop_path) || (BASE_URL + result.poster_path) || (`https://res.cloudinary.com/diylksocz/image/upload/v1653600542/No-image-found_dlyvql.jpg`)}`
 					}
 					height={1080}
 					width={1920}
