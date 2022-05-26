@@ -6,7 +6,6 @@ import {
 	CalendarIcon,
 } from "@heroicons/react/outline";
 import { forwardRef, useState, useEffect } from "react";
-//import image from "../public/noImage.jpg"
 
 const Thumbnail = forwardRef(({ result }, ref) => {
 	const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -81,7 +80,7 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 				<Image
 					layout="responsive"
 					src={
-						`${BASE_URL}${result.backdrop_path || result.poster_path}`
+						`${BASE_URL}${result.backdrop_path || result.poster_path || "https://res.cloudinary.com/diylksocz/image/upload/v1653600545/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab_fllbvh.png" }`
 					}
 					height={1080}
 					width={1920}
@@ -134,7 +133,7 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 													src={
 														`${BASE_URL}${
 															result.backdrop_path || result.poster_path
-														}` || `${BASE_URL}${result.poster_path}`
+														}`
 													}
 													height={1080}
 													width={1920}

@@ -87,7 +87,10 @@ export async function getServerSideProps(context) {
   const currentPage = context.query.page;
   const search = context.query.search;
 
+
+
   const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || fetchSearch + search}&page=${currentPage || 1}`).then(res => res.json())
+
 
 
   return {
