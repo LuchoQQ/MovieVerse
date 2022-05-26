@@ -80,7 +80,7 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 				<Image
 					layout="responsive"
 					src={
-						`${BASE_URL}${result.backdrop_path || result.poster_path || "https://res.cloudinary.com/diylksocz/image/upload/v1653600545/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab_fllbvh.png" }`
+						`${BASE_URL}${result.backdrop_path || result.poster_path} }` 
 					}
 					height={1080}
 					width={1920}
