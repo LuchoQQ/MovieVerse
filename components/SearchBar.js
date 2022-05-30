@@ -1,12 +1,19 @@
 import { useState } from "react";
 import router, {useRouter} from 'next/router';
+
 function SearchItem({Icon, title}) {
     const [search, setSearch] = useState(false);
     return (
         <div className="grid  grid-flow-col items-center cursor-pointer  ml-4 hover:text-white">
             <div className="justify-center group">
                 <Icon className='h-10 mb-1 group-hover:animate-bounce' onClick={() => {
-                    router.push(`/?search=${search}`)
+                    if(!search || search === "" || search === "false"){
+                        router.push(`/?genre=fetchTrending&page=1/`)
+
+                    }else{
+
+                        router.push(`/?search=${search}`)
+                    }
                 }}/>
             </div>
             <input 
@@ -18,7 +25,9 @@ function SearchItem({Icon, title}) {
                 }}
                 type="text"
                 placeholder={title}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value) }
+                //onKeyDown={enter}
+
             />           
         </div>
     )

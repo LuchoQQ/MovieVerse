@@ -59,10 +59,16 @@ export default function Home(
 
       <Header />
 
-      <Nav />
+      <Nav isNotSearch={search === "false" || search === "" ? true : false} />
 
       {/* Results */}
-      <Results results={results} />
+
+      {results.length !== 0 ?
+        <Results results={results} />
+        :
+        <div className="flex justify-center align-center mt-40"><p className="text-4xl">No results!</p></div>
+      }
+
 
       {!search && (
         <Pagination
@@ -90,7 +96,6 @@ export async function getServerSideProps(context) {
 
 
   const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || fetchSearch + search}&page=${currentPage || 1}`).then(res => res.json())
-
 
 
   return {
