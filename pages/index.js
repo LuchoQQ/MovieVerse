@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Pagination from '../components/Pagination'
 import Results from '../components/Results'
@@ -51,7 +52,7 @@ export default function Home(
   // ===========================================
 
   return (
-    <div>
+    <>
       <Head>
         <title>Hulu 2 Youtube</title>
         <link rel="icon" href="/favicon.ico" />
@@ -66,7 +67,7 @@ export default function Home(
       {results.length !== 0 ?
         <Results results={results} />
         :
-        <div className="flex justify-center align-center mt-40"><p className="text-4xl">No results!</p></div>
+        <div className="flex justify-center align-center mt-80 mb-52 "><p className="text-4xl min-h-700	">No results!</p></div>
       }
 
 
@@ -81,8 +82,8 @@ export default function Home(
         />
       )}
 
-
-    </div>
+        <Footer />
+    </>
   )
 }
 

@@ -12,13 +12,13 @@ export default function Pagination({
         <>
             <div className='py-2 flex justify-center'>
                 <div>
-                    <p className='text-sm text-white'>
+                    <p className='text-gray-500 '>
                         Showing
-                        <span className='font-medium'> {currentPage * postsPerPage - 20} </span>
+                        <span className='font-medium text-white '> {currentPage * postsPerPage - 20} </span>
                         to
-                        <span className='font-medium'> {currentPage * postsPerPage} </span>
+                        <span className='font-medium text-white'> {currentPage * postsPerPage} </span>
                         of
-                        <span className='font-medium'> {totalPosts} </span>
+                        <span className='font-medium text-white'> {totalPosts} </span>
                         results
                     </p>
                 </div>

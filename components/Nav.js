@@ -5,8 +5,6 @@ import { useState } from 'react';
 function Nav({ isNotSearch }) {
     const router = useRouter();
 
-    console.log(isNotSearch)
-
     return (
         <nav className="relative">
             <div className="flex p-5 sm:px-20 text-3xl whitespace-nowrap space-x-20 sm:space-x-20 overflow-x-scroll scrollbar-hide">

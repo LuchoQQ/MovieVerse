@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images:{
-    domains: ['links.papareact.com','image.tmdb.org', 'res.cloudinary.com', 'cloudinary.com'],
+    domains: ['links.papareact.com','image.tmdb.org', 'res.cloudinary.com', 'cloudinary.com',"https://github.com/LuchoQQ","https://arrecode.com"],
     disableStaticImages: false    
   },
   experimental: {
