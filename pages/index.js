@@ -82,13 +82,22 @@ export default function Home(
         />
       )}
 
-        <Footer />
+      <Footer />
     </>
   )
 }
 
 
 export async function getServerSideProps(context) {
+
+  if (context.resolvedUrl === "/") {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/?genre=fetchTrending&page=1"
+      }
+    }
+  }
 
   const genre = context.query.genre;
   const currentPage = context.query.page;
