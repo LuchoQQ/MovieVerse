@@ -36,7 +36,7 @@ function Footer() {
                         </li>
                     </ul>
                     <ul className="text-gray-500 sm:text-center dark:text-gray-400">
-                        Developed by <a className="text-blue-600/75" href="https://arrecode.com" target="_blank" rel="noreferrer">&nbsp;arre[code]&nbsp;</a> y <a className="text-blue-600/75" href="https://github.com/LuchoQQ" target="_blank" rel="noreferrer">&nbsp;Luciano Sánchez</a>.
+                        Developed by <a className="text-blue-600/75" href="https://arrecode.com" target="_blank" rel="noreferrer">&nbsp;arre[code]&nbsp;</a> y <a className="text-blue-600/75" href="https://github.com/LuchoQQ" target="_blank" rel="noreferrer">&nbsp;LuchoQQ</a>.
                     </ul>
                 </div>
             </footer>
